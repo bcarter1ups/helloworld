@@ -49,11 +49,11 @@ node {
         
         */
         
-        sh 'docker stop helloworld || true'
-        sh 'docker rm helloworld || true'     
+        docker stop helloworld || true
+        docker rm helloworld || true     
         
         
-        sh 'docker run -d -p 8000:8000 bcarter1/helloworld:latest --name helloworld'
+        docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name helloworld
         
         
         
