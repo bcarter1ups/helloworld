@@ -39,6 +39,12 @@ node {
         }
         */
         
+        docker stop helloworld
+        docker rm helloworld
+        
+        docker run -d -p 8000:8000 bcarter1/helloworld:latest --name helloworld
+        
+        
         
         
     }
