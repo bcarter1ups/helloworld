@@ -20,6 +20,7 @@ node {
 
         app.inside {
             sh 'echo "Tests passed"'
+            sh 'echo "Node version: "' + node -v
         }
     }
 
