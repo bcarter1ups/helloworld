@@ -51,10 +51,6 @@ node {
         sh 'docker stop helloworld || true'
         sh 'docker rm helloworld || true'     
         
-        if[$error]
-        then
-        fi
-        
         
         sh 'docker run -d -p 8000:8000 bcarter1/helloworld:latest --name helloworld'
         
