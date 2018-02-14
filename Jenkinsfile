@@ -24,8 +24,15 @@ node {
             sh 'echo "Tests passed"'
         }
     }
+    
+     stage('Push image') {
+      docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        container.push("${shortCommit}")
+        container.push('latest')
+      }
+    }   
 
-    stage('Push image') {
+    stage('start container') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -37,10 +44,18 @@ node {
             app.push("${env.BUILD_NUMBER}") 
             app.push("latest")
         }
+        
+        
         */
         
-        sh 'docker stop helloworld || true && docker rm helloworld || true'
-                
+        sh 'docker stop helloworld || true'
+        sh 'docker rm helloworld || true'     
+        
+        if[$error]
+        then
+        fi
+        
+        
         sh 'docker run -d -p 8000:8000 bcarter1/helloworld:latest --name helloworld'
         
         
