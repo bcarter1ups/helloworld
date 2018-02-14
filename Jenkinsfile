@@ -19,8 +19,9 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
+            sh 'echo "Node version: "' 
+            sh 'node -v'
             sh 'echo "Tests passed"'
-            sh 'echo "Node version: "' + node -v
         }
     }
 
