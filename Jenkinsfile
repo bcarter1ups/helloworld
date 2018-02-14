@@ -42,8 +42,9 @@ node {
         agent any
         steps {
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-            sh 'docker push bcarter1/helloworld:latest'
-          }
+				sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+				sh 'docker push bcarter1/helloworld:latest'
+            }
+		}
     }
 }
