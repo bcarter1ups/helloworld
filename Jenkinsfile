@@ -24,13 +24,14 @@ node {
             sh 'echo "Tests passed"'
         }
     }
-    
+    /*
      stage('Push image') {
       docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
         container.push("${shortCommit}")
         container.push('latest')
       }
     }   
+    */
 
     stage('start container') {
         /* Finally, we'll push the image with two tags:
