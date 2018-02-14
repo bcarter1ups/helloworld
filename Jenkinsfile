@@ -24,14 +24,6 @@ node {
             sh 'echo "Tests passed"'
         }
     }
-    /*
-     stage('Push image') {
-      docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-        container.push("${shortCommit}")
-        container.push('latest')
-      }
-    }   
-    */
 
     stage('start container') {
         /* Finally, we'll push the image with two tags:
@@ -49,11 +41,11 @@ node {
         
         */
         
-        docker stop helloworld || true
-        docker rm helloworld || true     
+        docker stop 'helloworld' || true
+        docker rm 'helloworld' || true     
         
         
-        docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name helloworld
+        docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name 'helloworld'
         
         
         
