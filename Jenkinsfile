@@ -26,33 +26,6 @@ node {
     }
 
     stage('start container') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        
-       
-       /* 
-       docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}") 
-            app.push("latest")
-        }
-        
-        
-        */
-        
-        /*
-        
-        docker stop 'helloworld' || true
-        docker rm 'helloworld' || true     
-        
-        */
-        
-        
-        docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name 'helloworld'
-        
-        
-        
-        
+        /* docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name 'helloworld' */
     }
 }
