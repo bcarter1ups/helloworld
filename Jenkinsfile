@@ -41,8 +41,12 @@ node {
         
         */
         
+        /*
+        
         docker stop 'helloworld' || true
         docker rm 'helloworld' || true     
+        
+        */
         
         
         docker run -d -p '8000:8000' 'bcarter1/helloworld:latest' --name 'helloworld'
